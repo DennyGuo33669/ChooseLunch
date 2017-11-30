@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        #title {
+            color: burlywood;
+        }
+
+        #button {
+            width: 8rem;
+            height: 4rem;
+        }
+
+        #get_dish{
+            padding-bottom: 100px;
+        }
+
+    </style>
+
+    <script type="text/javascript">
+
+        temp = 0;
+
+        function GetDish() {
+            dish1 = document.getElementById('dish1').value;
+            dish2 = document.getElementById('dish2').value;
+            dish3 = document.getElementById('dish3').value;
+            dish4 = document.getElementById('dish4').value;
+            dish5 = document.getElementById('dish5').value;
+        }
+
+
+        //获取输入内容
+
+        function GetRandom() {
+             var num;
+            num = Math.random(num);
+            num = Math.ceil(num*5);
+            GetDish();
+
+            if(!(dish1||dish2||dish3||dish4||dish5)){
+                alert("请输入要吃什么");
+            }else {
+                switch (num)
+                {
+                    case 1:if(dish1){
+                        alert("今天中午吃"+dish1);break;
+                    }else {
+
+                    }
+                    case 2:if(dish2){
+                        alert("今天中午吃"+dish2); break;
+                    }else {
+
+                    }
+                    case 3:if(dish3){
+                        alert("今天中午吃"+dish3); break;
+                    }else {
+
+                    }
+                    case 4:if(dish4){
+                        alert("今天中午吃"+dish4); break;
+                    }else {
+
+                    }
+                    case 5:if(dish5){
+                        alert("今天中午吃"+dish5); break;
+                    }else {
+
+                    }
+
+                }
+
+            }
+
+
+
+
+
+        }
+
+
+    </script>
+</head>
+<body style="text-align: center">
+<h1 id="title">今天中午吃啥？</h1>
+<div id="get_dish">
+    <input type="text" id="dish1">
+    <input type="text" id="dish2">
+    <input type="text" id="dish3">
+    <input type="text" id="dish4">
+    <input type="text" id="dish5">
+</div>
+
+<div id="button_box">
+    <input type="button" name="button" id="button" value="pop" onclick="GetRandom()"/>
+</div>
+
+</body>
+</html>
