@@ -25,14 +25,18 @@
         function GetName() {
             var list = document.getElementsByName("dish");
             //获取菜名
+            // for(var x = 0 ; x < list.length ; x++) {
+            //     if (list[x] == "") {
+            //         document.getElementById("pid").innerHTML = "请输入菜名";
+            //     }//判断菜名是否为空
+            // }
+            //
+            // else{
+                var temp = Math.ceil(Math.random()*list.length)-1;
+                document.getElementById("pid").innerHTML=list[0].value;
+            // }
 
-            if(list.value==""){
-                document.getElementById("pid").innerHTML="请输入菜名";
-            }
-            //判断菜名是否为空
 
-            var temp = Math.ceil(Math.random()*list.length)-1;
-            document.getElementById("pid").innerHTML=list[temp].value;
         }
 
 
