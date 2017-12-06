@@ -22,19 +22,35 @@
     <script type="text/javascript">
 
 
-        function GetName() {
+        function GetName()
+        {
             var list = document.getElementsByName("dish");
+            var getList = new Array();
             //获取菜名
-            // for(var x = 0 ; x < list.length ; x++) {
-            //     if (list[x] == "") {
-            //         document.getElementById("pid").innerHTML = "请输入菜名";
-            //     }//判断菜名是否为空
-            // }
-            //
-            // else{
-                var temp = Math.ceil(Math.random()*list.length)-1;
-                document.getElementById("pid").innerHTML=list[0].value;
-            // }
+            for (var x = 0 ; x < list.length ;x++)
+            {
+                 if (list[x].value.length != 0)
+                {
+
+                    getList.push(list[x].value);
+
+
+                }//判断菜名是否为空
+            }
+            if(getList.length==0)
+            {
+                //document.getElementById("pid").innerHTML = '请输入菜名';
+                alert('请输入菜名');
+            }
+            else {
+                var temp = Math.ceil(Math.random()*getList.length)-1;
+                document.getElementById("pid").innerHTML=getList[temp]//list[temp].value;
+            }
+           // alert(getList);
+
+
+
+
 
 
         }
