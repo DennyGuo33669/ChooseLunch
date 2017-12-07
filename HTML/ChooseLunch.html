@@ -13,7 +13,7 @@
             height: 4rem;
         }
 
-        #get_dish{
+        #get_dish {
             padding-bottom: 100px;
         }
 
@@ -22,35 +22,41 @@
     <script type="text/javascript">
 
 
-        function GetName()
-        {
+        function GetName() {
             var list = document.getElementsByName("dish");
+            //获取Name为dish的对象集合
             var getList = new Array();
             //获取菜名
-            for (var x = 0 ; x < list.length ;x++)
-            {
-                 if (list[x].value.length != 0)
+            for (var x = 0; x < list.length ; x++) {
+                if (list[x].value.length != 0)
                 {
-
                     getList.push(list[x].value);
+                }//获取菜名存入数组
 
-
-                }//判断菜名是否为空
             }
-            if(getList.length==0)
-            {
-                //document.getElementById("pid").innerHTML = '请输入菜名';
-                alert('请输入菜名');
-            }
-            else {
-                var temp = Math.ceil(Math.random()*getList.length)-1;
-                document.getElementById("pid").innerHTML=getList[temp]//list[temp].value;
-            }
-           // alert(getList);
+
+            for (var i = 0; i < getList.length ; i++) {
+                if(getList[i].substr(0,getList[i].length).trim().length==0){
+                     //alert("第"+(i+1)+"个输入框为空");
+                    getList.splice(i,1);
+                }
+            }//输入框内全部为空格视为空
+
+            // for(var a in getList){
+            //
+            //     document.write("第"+getList[a].trim()+"个<br/>");
+            //
+            // }//查看获取字符串是否正确
 
 
-
-
+                if (getList.length == 0) {
+                    document.getElementById("pid").innerHTML = '请输入菜名';
+                    //alert('请输入菜名');
+                }
+                else {
+                    var temp = Math.ceil(Math.random() * getList.length) - 1;
+                    document.getElementById("pid").innerHTML = getList[temp];
+                }
 
 
         }
