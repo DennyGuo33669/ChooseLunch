@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>随机选择器</title>
+    <style type="text/css">
+        body{text-align: center;color: coral;background-color: beige;}
+        p{;font-size:3em;font-weight: bold;}
+        input{margin: 5px 10px 5px 10px;}
+    </style>
+</head>
+<body>
+
+<h1>点击按钮开始吧！</h1>
+<h2 id="pid">暂无获取到数据</h2>
+<h2 id="pid1">暂无结果</h2>
+
+<button onclick="addText()">新增</button>
+<button onclick="get()">随机</button>
+
+<div id="board">
+</div>
+<div id="board1">
+</div>
+
+<script>
+    function addText() {
+        var board1 = document.getElementById("board1");
+        var text = document.createElement("input");
+        var br = document.createElement("br");
+        text.type = "text";
+        text.name = "textGeted";
+        board1.appendChild(text);
+        board1.appendChild(br);
+    }//添加输入框
+
+    function random(num) {
+        var temp = Math.random()*num;
+        temp = Math.ceil(temp);
+        return temp;
+    }//生成随机数
+
+    function get() {
+        var arry = document.getElementsByName("textGeted");
+        var string = new Array();
+        var count = 0;
+        for(var i = 0 ; i < arry.length ; i++) {
+            if(arry[i].value == ''){
+                continue;
+            }
+            else {
+                string.push(arry[i].value);
+                count++;
+            }
+
+        }
+
+        if(string == ''){
+            document.getElementById("pid").innerHTML = "暂无获取到数据";
+            document.getElementById("pid1").innerHTML = "暂无结果";
+
+        }
+        else {
+            document.getElementById("pid").innerHTML = "获取到"+string.length+"个:"+string;
+            document.getElementById("pid1").innerHTML = "结果:"+string[random(count)-1];
+        }
+
+    }//获取
+
+    function menu() {
+        var board = document.getElementById("board");
+        var btn = document.createElement("button");
+        btn.innerHTML = "超级添加";
+        btn.onclick = "addPlus()";
+        board.appendChild(btn);
+
+    }
+
+</script>
+</body>
+</html>
