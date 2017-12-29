@@ -1,4 +1,5 @@
-# ChooseLunch
+# RandomSelector
+
 1.0
 运用swicth语句和GetElementById方法
 
